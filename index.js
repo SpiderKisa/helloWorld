@@ -8,9 +8,6 @@ btn.addEventListener("click", function() {
     ourRequest.onload = function() {
         if (ourRequest.status >= 200 && ourRequest.status < 400) {
             let ourData = JSON.parse(ourRequest.responseText);
-            ourData.forEach(e => {
-                console.log(e);
-            });
             btn.insertAdjacentHTML('beforebegin', ourData[moreCounter].content);
         } else {
             console.log("We connected to the server, but it returned an error.");
