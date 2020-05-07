@@ -1,0 +1,8 @@
+[
+  {
+    "content" : "<p>For example, the following AJAX script is used to show this piece if data:</p>\n<pre>\n<code>\nlet moreCounter = -1;\nlet btn = document.getElementById(\"ajax-json-more\");\n\nbtn.addEventListener(\"click\", function() {\n\n    let ourRequest = new XMLHttpRequest();\n    ourRequest.open('GET', 'more.json');\n    ourRequest.onload = function() {\n        if (ourRequest.status >= 200 && ourRequest.status < 400) {\n            let ourData = JSON.parse(ourRequest.responseText);\n            ourData.forEach(e => {\n                console.log(e);\n            });\n            more.insertAdjacentHTML('beforeend', ourData[moreCounter].content);\n        } else {\n            console.log(\"We connected to the server, but it returned an error.\");\n        }\n    };\n\n    ourRequest.onerror = function() {\n        console.log(\"Connection error\");\n    };\n\n    ourRequest.send();\n    moreCounter++;\n    if (moreCounter >= 1) {\n        btn.classList.add(\"hide\");\n    }\n});\n</code>\n</pre>"
+  },
+  {
+    "content" : "<p>The <code>more.json</code> file is structured as following:</p>\n<pre>\n<code>\n[\n  {\n    \"content\" : \"<p>For example, the following AJAX script is used to show this piece if data:</p> ... \"\n  },\n  {\n    \"content\" : \"<p>The <code>more.json</code> file is structured as following:</p> ...\"\n  }\n]\n</code>\n</pre>\n<p>Since there is no more data to upload, the 'learn more' button is hidden.</p>"
+  }
+]
